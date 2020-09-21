@@ -6,18 +6,28 @@
     <script src="https://momentjs.com/downloads/moment.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.comcss?family=Lato&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
   </head>
   <body>
+  <div class="container">
+  <h3 id="data-odierna"></h3>
+  <div class="utility">
+    <div class="prev">  <p><i class="fas fa-angle-left"></i> Precendete </p>   </div>
+    <div class="next"> <p>Successivo  <i class="fas fa-angle-right"></i></p> </div>
 
+  </div>
+  </div>
+  <div class="wrapper">
   <ul id="days">
 
-  </ul>
 
+  </ul>
+</div>
   <script id="day-template" type="text/x-handlebars-template">
-    <li class="day" data-date="{{dataComplete}}">{{day}} {{month}} <span class="holidayType"></span></li>
+    <li class="day" data-date="{{dateComplete}}">{{day}} {{month}} <span class="holidayType"></span></li>
   </script>
   <script src="js/script.js" charset="utf-8"></script>
   </body>

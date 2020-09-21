@@ -3,7 +3,7 @@ $(document).ready(function(){
 var date = "2018-01-01";
 
 var momentDate = moment(date);
-
+$("#data-odierna").text(momentDate);
 var source = $("#day-template").html();
 var template = Handlebars.compile(source);
 
@@ -23,7 +23,7 @@ for (var i = 1; i <= momentDate.daysInMonth(); i++) {
 
 $.ajax(
   {
-    "url" : "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+    "url" : "https://flynn.boolean.careers/exercises/api/holidays",
     "data" : {
       "year": 2018,
       "month": 0
@@ -47,9 +47,9 @@ function printHolidays(holidays) {
       var holidayDate = holidays[i].date;
       var holidayName = holidays[i].name;
 
-      $(".day[data-date='"+ holidayDate +"']").addClass("holiday");
+      $(".day[data-date='"+holidayDate+"']").addClass("holiday");
 
-      $(".day[data-date='"+ holidayDate +"'] .holidayType").text("- " +holidayName);
+      $(".day[data-date='"+holidayDate+"'] .holidayType").text("- " +holidayName);
     }
   }
 }

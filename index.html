@@ -4,10 +4,15 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://momentjs.com/downloads/moment.js" charset="utf-8"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.comcss?family=Lato&display=swap"rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"> 
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -21,13 +26,17 @@
   </div>
   </div>
   <div class="wrapper">
+
   <ul id="days">
 
 
   </ul>
 </div>
   <script id="day-template" type="text/x-handlebars-template">
-    <li class="day" data-date="{{dateComplete}}">{{day}} {{month}} <span class="holidayType"></span></li>
+    <li class="day" data-date="{{dateComplete}}">{{day}} {{month}}
+
+    <div class="holidayType"></div>
+
   </script>
   <script src="js/script.js" charset="utf-8"></script>
   </body>

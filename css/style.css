@@ -2,11 +2,13 @@
  box-sizing: border-box;
  margin: 0;
  padding: 0;
+ font-family: 'Lato', sans-serif;
  }
 .container {
   width: 1300px;
-  border: 1px solid red;
   margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 #data-odierna {
   text-align: center;
@@ -17,19 +19,33 @@
 }
 .utility a {
   text-decoration: none;
-  cursor: pointer;
   font-size: 20px;
   font-weight: 600;
+  cursor: pointer;
+}
+.utility a:hover {
+  color: #f03c3c;
 }
 .wrapper {
-  width: 1200px;
+  width: 1400px;
   margin: auto;
 }
-
+.day {
+  display: flex;
+  flex-direction: column;
+}
+.holidayType {
+margin-top: 10px;
+}
 #days {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  font-size: 20px;
+  cursor: pointer;
+}
+#days li:hover {
+  background-color: #ffc9c9
 }
 #days li {
 display: flex;
@@ -41,6 +57,9 @@ align-items: center;
 justify-content: center;
 }
 .holiday {
-  color: red;
-background-color: #e6e6e6
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #c24138;
+  text-align: center;
 }

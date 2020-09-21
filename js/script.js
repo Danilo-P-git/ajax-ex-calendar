@@ -91,8 +91,9 @@ function printHolidays(date) {
             var holidayName = risultato[i].name;
 
             var selettoreAttr = $(".day[data-date='" + holidayDate + "']");
-            selettoreAttr.addClass("holiday");
-            selettoreAttr.children(".holiday-name").text("- "+holidayName);
+            selettoreAttr.children(".holidayType").addClass("holiday")
+            selettoreAttr.children(".holidayType").text(holidayName);
+
           }
         }
 

@@ -2,28 +2,51 @@ $(document).ready(function(){
 
 var date = "2018-01-01";
 var momentDate = moment(date);
-// var test = momentDate.subtract(1, 'month');
-// console.log(test);
-// console.log(momentDate);
-printCalendar(momentDate)
 
-$.ajax(
-  {
-    "url" : "https://flynn.boolean.careers/exercises/api/holidays",
-    "data" : {
-      "year": 2018,
-      "month": 0
-    },
-    "method": "GET",
-    "success": function(data) {
-      printHolidays(data.response);
-    },
-    "error" : function(franco) {
-      alert("Errore");
+printCalendar(momentDate);
+
+printHolidays(momentDate);
+
+$(".next a").click(function() {
+  if (momentDate.format("MM") == 12) {
+      alert("Errore problema di connessione");
+    } else {
+      var newDate = momentDate.add(1, "M");
+      printCalendar(newDate);
+      printHolidays(newDate)
     }
-  }
-);
 });
+$(".prev a").click(function() {
+  if (momentDate.format("MM") == 1) {
+      alert("Errore problema di connessione");
+    } else {
+      var newDate = momentDate.subtract(1, "M");
+      printCalendar(newDate);
+      printHolidays(newDate)
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
 
 function printCalendar(data) {
 
@@ -45,19 +68,38 @@ function printCalendar(data) {
   }
 }
 
-function printHolidays(holidays) {
-  if (holidays.length > 0) {
-    for (var i = 0; i < holidays.length; i++) {
-      var holidayDate = holidays[i].date;
-      var holidayName = holidays[i].name;
+function printHolidays(date) {
+  var momentDateMonth = date.format("MM");
 
-      $(".day[data-date='"+holidayDate+"']").addClass("holiday");
+  $.ajax(
+    {
+      "url": "https://flynn.boolean.careers/exercises/api/holidays",
+      "data": {
+        "year" : 2018,
+        "month" : momentDateMonth - 1
+      },
+      "method" : "GET",
+      "success": function(data){
+        //console.log(data.response);
+        var risultato = data.response;
+        if (risultato.length > 0) {
+          for (var i = 0; i < risultato.length; i++) {
+            var holidayDate = risultato[i].date;
+            var holidayName = risultato[i].name;
 
-      $(".day[data-date='"+holidayDate+"'] .holidayType").text("- " +holidayName);
+            var selettoreAttr = $(".day[data-date='" + holidayDate + "']");
+            selettoreAttr.addClass("holiday");
+            selettoreAttr.children(".holiday-name").text("- "+holidayName);
+          }
+        }
+
+      },
+      "error" : function(error){
+        alert("Errore!");
+      }
     }
-  }
-}
-
+  );
+};
 
 function addZero(day) {
   if (day < 10) {

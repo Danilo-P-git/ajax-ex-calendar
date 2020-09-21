@@ -15,7 +15,8 @@
   display: flex;
   justify-content: space-around;
 }
-.utility p {
+.utility a {
+  text-decoration: none;
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;

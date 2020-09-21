@@ -12,6 +12,7 @@ $(".next a").click(function() {
       alert("Errore problema di connessione");
     } else {
       var newDate = momentDate.add(1, "M");
+      clear()
       printCalendar(newDate);
       printHolidays(newDate)
     }
@@ -21,6 +22,7 @@ $(".prev a").click(function() {
       alert("Errore problema di connessione");
     } else {
       var newDate = momentDate.subtract(1, "M");
+      clear()
       printCalendar(newDate);
       printHolidays(newDate)
     }
@@ -45,8 +47,9 @@ $(".prev a").click(function() {
 
 
 
-
-
+function clear() {
+$("#days li").remove();
+}
 
 function printCalendar(data) {
 
